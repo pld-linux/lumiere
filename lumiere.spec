@@ -1,12 +1,13 @@
 Summary:	Lumiere - movie player for GNOME based on mplayer
 Summary(pl):	Lumiere - odtwarzacz filmów dla GNOME bazuj±cy na mplayerze
 Name:		lumiere
-Version:	0.2.0
+Version:	0.3.0
 Release:	1
 License:	GPL
 Group:		Applications/Multimedia
-Source0:	http://users.aber.ac.uk/ssk01/prog/sources/%{name}-0.2.tar.gz
-URL:		http://users.aber.ac.uk/ssk01/lumiere/
+Source0:	http://brain.shacknet.nu/%{name}-%{version}.tar.gz
+Patch0:		%{name}-schemas.patch
+URL:		http://brain.shacknet.nu/lumiere.html
 BuildRequires:	ORBit2-devel
 BuildRequires:	bonobo-activation-devel >= 0.9.7
 BuildRequires:	gnome-vfs2-devel >= 1.9.12
@@ -23,9 +24,15 @@ Lumiere, a movie player for GNOME based on mplayer.
 Lumiere - odtwarzacz filmów dla GNOME bazujacy na mplayerze.
 
 %prep
-%setup -q -n lum
+%setup -q
+%patch0 -p1
 
 %build
+%{__libtoolize}
+%{__aclocal}
+%{__autoheader}
+%{__automake}
+%{__autoconf}
 %configure \
 	--with-html-dir=%{_gtkdocdir} \
 	--with-mplayer=/usr/bin/mplayer
@@ -37,15 +44,19 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 	
-%find_lang %{name} --with-gnome --all-name
+#%find_lang %{name} --with-gnome --all-name
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post	-p /sbin/ldconfig
+%post
+/sbin/ldconfig
+%gconf_schema_install
+
 %postun	-p /sbin/ldconfig
 
-%files -f %{name}.lang
+%files 
+#-f %{name}.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/lumiere
 %attr(755,root,root) %{_libdir}/lumiere-control
@@ -53,5 +64,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/bonobo/servers/GNOME_LUM.server
 %{_datadir}/applications/lumiere.desktop
 %{_datadir}/gnome-2.0/ui/*
+%{_datadir}/lumiere/glade/lumiere.glade
 %{_pixmapsdir}/lumiere
 %{_pixmapsdir}/gnome-lumiere.png
+%{_sysconfdir}/gconf/schemas/*
