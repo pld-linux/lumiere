@@ -25,7 +25,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Lumiere, a movie player for GNOME based on mplayer.
 
 %description -l pl
-Lumiere - odtwarzacz filmów dla GNOME bazujacy na mplayerze.
+Lumiere - odtwarzacz filmów dla GNOME bazuj±cy na mplayerze.
 
 %prep
 %setup -q
