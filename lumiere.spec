@@ -7,7 +7,12 @@ License:	GPL
 Group:		Applications/Multimedia
 Source0:	http://users.aber.ac.uk/ssk01/prog/sources/%{name}-0.2.tar.gz
 URL:		http://users.aber.ac.uk/ssk01/lumiere/
-#BuildRequires:	TODO
+BuildRequires:	ORBit2-devel
+BuildRequires:	bonobo-activation-devel >= 0.9.7
+BuildRequires:	gnome-vfs2-devel >= 1.9.12
+BuildRequires:	gob2 >= 2.0.0
+BuildRequires:	libbonoboui-devel >= 1.115.0
+BuildRequires:	libgnomeui-devel >= 1.115.0
 Requires:	mplayer
 BuildRoot:      %{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -22,7 +27,9 @@ Lumiere - odtwarzacz filmów dla GNOME bazujacy na mplayerze.
 
 %build
 %configure \
-	--with-html-dir=%{_gtkdocdir}
+	--with-html-dir=%{_gtkdocdir} \
+	--with-mplayer=/usr/bin/mplayer
+
 %{__make}
 
 %install
