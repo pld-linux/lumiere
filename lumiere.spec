@@ -1,17 +1,21 @@
-Summary:	Lumiere
+Summary:	Lumiere - movie player for GNOME based on mplayer
+Summary(pl):	Lumiere - odtwarzacz filmów dla GNOME bazuj±cy na mplayerze
 Name:		lumiere
 Version:	0.2.0
 Release:	1
 License:	GPL
 Group:		Applications/Multimedia
 Source0:	http://users.aber.ac.uk/ssk01/prog/sources/%{name}-0.2.tar.gz
-URL:		http://users.aber.ac.uk/ssk01/lumiere
-Prereq:		/sbin/install-info
+URL:		http://users.aber.ac.uk/ssk01/lumiere/
+#BuildRequires:	TODO
 Requires:	mplayer
 BuildRoot:      %{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Lumiere, a movie player for Gnome based on mplayer.
+Lumiere, a movie player for GNOME based on mplayer.
+
+%description -l pl
+Lumiere - odtwarzacz filmów dla GNOME bazujacy na mplayerze.
 
 %prep
 %setup -q -n lum
@@ -24,15 +28,15 @@ Lumiere, a movie player for Gnome based on mplayer.
 %install
 rm -rf $RPM_BUILD_ROOT
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT \
+	DESTDIR=$RPM_BUILD_ROOT
 	
 %find_lang %{name} --with-gnome --all-name
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post -p /sbin/ldconfig
-%postun -p /sbin/ldconfig
+%post	-p /sbin/ldconfig
+%postun	-p /sbin/ldconfig
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
