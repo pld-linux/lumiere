@@ -19,7 +19,7 @@ BuildRequires:	libbonoboui-devel >= 1.115.0
 BuildRequires:	libgnomeui-devel >= 1.115.0
 BuildRequires:	libtool
 Requires:	mplayer
-BuildRoot:      %{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 Lumiere, a movie player for GNOME based on mplayer.
