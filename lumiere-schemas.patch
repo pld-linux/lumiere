@@ -1,0 +1,11 @@
+diff -urN lumiere-0.3.0.orig/Makefile.am lumiere-0.3.0/Makefile.am
+--- lumiere-0.3.0.orig/Makefile.am	Mon Jan 20 19:22:42 2003
++++ lumiere-0.3.0/Makefile.am	Mon Jan 20 19:29:34 2003
+@@ -18,7 +18,3 @@
+ 
+ schemasdir = $(sysconfdir)/gconf/schemas
+ schemas_DATA = lumiere.schemas
+-
+-install-data-local:
+-	GCONF_CONFIG_SOURCE=$(GCONF_SCHEMA_CONFIG_SOURCE) $(GCONFTOOL) --shutdown
+-	GCONF_CONFIG_SOURCE=$(GCONF_CONFIG_SOURCE) $(GCONFTOOL) --makefile-install-rule $(top_srcdir)/lumiere.schemas
