@@ -6,6 +6,7 @@ Release:	1
 License:	GPL
 Group:		Applications/Multimedia
 Source0:	http://brain.shacknet.nu/%{name}-%{version}.tar.gz
+# Source0-md5:	93af0abe6a81fe52b94b92e9f4a098f2
 Patch0:		%{name}-schemas.patch
 URL:		http://brain.shacknet.nu/lumiere.html
 BuildRequires:	ORBit2-devel
