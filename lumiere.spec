@@ -63,7 +63,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/lumiere-control
 %attr(755,root,root) %{_libdir}/midentify
 %{_libdir}/bonobo/servers/GNOME_LUM.server
-%{_datadir}/applications/lumiere.desktop
+%{_desktopdir}/lumiere.desktop
 %{_datadir}/gnome-2.0/ui/*
 %{_datadir}/lumiere/glade/lumiere.glade
 %{_pixmapsdir}/lumiere
