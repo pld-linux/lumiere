@@ -10,11 +10,14 @@ Source0:	http://brain.shacknet.nu/%{name}-%{version}.tar.gz
 Patch0:		%{name}-schemas.patch
 URL:		http://brain.shacknet.nu/lumiere.html
 BuildRequires:	ORBit2-devel
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	bonobo-activation-devel >= 0.9.7
 BuildRequires:	gnome-vfs2-devel >= 1.9.12
 BuildRequires:	gob2 >= 2.0.0
 BuildRequires:	libbonoboui-devel >= 1.115.0
 BuildRequires:	libgnomeui-devel >= 1.115.0
+BuildRequires:	libtool
 Requires:	mplayer
 BuildRoot:      %{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -42,6 +45,7 @@ Lumiere - odtwarzacz filmów dla GNOME bazujacy na mplayerze.
 
 %install
 rm -rf $RPM_BUILD_ROOT
+
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
@@ -65,6 +69,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/bonobo/servers/GNOME_LUM.server
 %{_desktopdir}/lumiere.desktop
 %{_datadir}/gnome-2.0/ui/*
+%dir %{_datadir}/lumiere
+%dir %{_datadir}/lumiere/glade
 %{_datadir}/lumiere/glade/lumiere.glade
 %{_pixmapsdir}/lumiere
 %{_pixmapsdir}/gnome-lumiere.png
