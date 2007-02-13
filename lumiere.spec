@@ -1,5 +1,5 @@
 Summary:	Lumiere - movie player for GNOME based on mplayer
-Summary(pl.UTF-8):   Lumiere - odtwarzacz filmów dla GNOME bazujący na mplayerze
+Summary(pl.UTF-8):	Lumiere - odtwarzacz filmów dla GNOME bazujący na mplayerze
 Name:		lumiere
 Version:	0.3.0
 Release:	1
